@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: none; border:none;
+        }
+        section{
+            padding: 1rem 10%;
+        }
+        h1{
+            margin-top: 1rem;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #000;
+            border-radius: .5rem;
+        }.form-input{
+            width: 100%;
+            padding: 1rem;
+        }.form-input .box-input{
+            width: 100%;
+            border: 1px solid #000;
+        }.form-input .btnDelete{
+            float: right;
+            font-weight: bold;
+            /* font-size: 1rem; */
+            padding: .5rem 1rem;
+            margin-top: .5rem;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <button id="tambah">Tambah</button>
+        <p>inputan form paket</p>
+        <input type="text" value="" style="border: 1px solid #000;" required>
+        <h1>Vendor</h1>
+        <div class="container">
+
+        </div>
+        <button id="submit">Submit</button>
+    </section>
+    <script type="module">
+        import {ml} from './js/domElement.js'
+        // const target = document.getElementById();
+        const btnTambah = document.getElementById('tambah');
+        const btnSubmit = document.getElementById('submit')
+        const target = document.querySelector('.container')
+
+        // check inputan yang required
+        setInterval(() => {
+            document.querySelectorAll("input").forEach(element => {
+                if(element.value == null || element.value == ''){
+                    btnSubmit.disabled = true;
+                    btnSubmit.style.cursor = 'no-drop'
+                }else{
+                    btnSubmit.disabled = false;
+                    btnSubmit.style.cursor = 'pointer'
+                }
+            })
+        }, 500)
+        
+        
+
+        btnSubmit.addEventListener('click', () => {
+            if(target.childElementCount == 0){
+                console.log('kosong');
+            }
+        })
+
+
+        btnTambah.addEventListener('click', () => {
+            let container = ml('div', {class: 'form-input'}, [
+                ml('p', {}, 'vendor'),
+                ml('input', {class: 'box-input', type: 'text', }, ),
+                ml('p', {}, 'kota'),
+                ml('input', {class: 'box-input', type: 'text'}, ),
+                ml('p', {}, 'harga'),
+                ml('input', {class: 'box-input', type: 'number'}, ),
+            ])
+            const btnDelete = document.createElement('button')
+            btnDelete.setAttribute('class', 'btnDelete')
+            btnDelete.addEventListener('click', () => {
+                btnDelete.parentElement.remove();
+            })
+            btnDelete.innerHTML = 'hapus'
+            container.append(btnDelete)
+            target.append(container)
+
+            // set required
+            for(let i = 0; i < target.childElementCount; i++){
+                target.children[i].children[1].required = true
+                target.children[i].children[3].required = true
+                target.children[i].children[5].required = true
+            }
+            // console.log(target.children[0]);
+        })
+    </script>
+</body>
+</html>
