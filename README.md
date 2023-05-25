@@ -1,2 +1,2 @@
 # Alindo-FrontEnd
-kumpulan idi alindo frontend
+kumpulan ide alindo frontend web
