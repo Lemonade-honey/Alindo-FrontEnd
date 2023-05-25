@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biaya Lainnya</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: none; border:none;
+        }
+        section{
+            padding: 1rem 10%;
+        }
+        h1{
+            margin-top: 1rem;
+        }
+        .container{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #000;
+            border-radius: .5rem;
+        }.form-input{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .5rem;
+            width: 100%;
+            padding: 1rem;
+        }.form-input .box-input{
+            padding: .3rem .5rem;
+            width: 100%;
+            border: 1px solid #000;
+        }.form-input .btnDelete{
+            float: right;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: .3rem .5rem;
+            cursor: pointer;
+        }.form-input .btnDelete:hover{
+            background: rgb(226, 66, 66);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Biaya Lainnya <button id="tambah">Tambah</button></h1>
+        <div class="container">
+
+        </div>
+        <button id="submit">Submit</button>
+    </section>
+    <script type="module">
+        import {ml} from './js/domElement.js';
+
+        const btnTambah = document.getElementById('tambah')
+        const btnSubmit = document.getElementById('submit')
+
+        const target = document.querySelector('.container')
+
+        setInterval(() => {
+            document.querySelectorAll("input").forEach(element => {
+                if(element.value == null || element.value == ''){
+                    btnSubmit.disabled = true;
+                    btnSubmit.style.cursor = 'no-drop'
+                }else{
+                    btnSubmit.disabled = false;
+                    btnSubmit.style.cursor = 'pointer'
+                }
+            })
+
+            if(target.childElementCount <= 0){
+                btnSubmit.disabled = false;
+                btnSubmit.style.cursor = 'pointer'
+            }
+        }, 500)
+
+        btnTambah.addEventListener('click', () => {
+            let container = ml('div', {class: 'form-input'}, [
+                ml('input', {type: 'text', class: 'box-input', placeholder: 'keterangan'}, ),
+                ml('input', {type: 'number', class: 'box-input', placeholder: 'harga'}, ),
+            ])
+
+            const btnDelete = document.createElement('button')
+            btnDelete.setAttribute('class', 'btnDelete')
+            btnDelete.innerHTML = 'hapus'
+            btnDelete.addEventListener('click', () => {
+                btnDelete.parentElement.remove()
+            })
+
+            container.append(btnDelete)
+            target.append(container)
+
+            for(let i = 0; i < target.childElementCount; i++){
+                target.children[i].children[0].required = true
+                target.children[i].children[1].required = true
+            }
+        })
+    </script>
+</body>
+</html>
