@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global_style.css">
+    <link rel="stylesheet" href="css/paket_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js" defer></script>
+    <title>Vendor Invoice || 2305230000</title>
+</head>
+<body>
+    <section>
+        <div class="flex">
+            <h1><div class="judul-page">Vendor Invoice</div></h1>
+        </div>
+        <div class="target-vendor"><button type="button" class="btnTambah" id="tambah">Tambah Vendor</button> Yogyakarta > Jakarta</div>
+        <form method="post">
+            <div id="target-container">
+                <!-- <div class="container-detail-paket">
+                    <div class="form-input">
+                        <p>Nama Vendor</p>
+                        <input type="text" class="box-input" value="nama">
+                    </div>
+                    <div class="form-input">
+                        <p>Kota Vendor</p>
+                        <input type="text" class="box-input" value="kota">
+                    </div>
+                    <div class="form-input">
+                        <p>Harga Vendor</p>
+                        <input type="number" class="box-input" value="harga">
+                    </div>
+                </div> -->
+            </div>
+            <button type="submit" class="btnSubmit" id="submit">Update Vendor</button>
+        </form>
+    </section>
+    <script type="module">
+        import {ml} from './js/domElement.js'
+        const btnTambah = document.getElementById('tambah');
+        const btnSubmit = document.getElementById('submit')
+        const target = document.querySelector('#target-container')
+
+        let totalHarga = 0
+
+        // check inputan yang required
+        setInterval(() => {
+            actionValidBtb()
+        }, 1000)
+
+        btnSubmit.addEventListener('click', () => {
+            // if(target.childElementCount == 0){
+            //     console.log('kosong');
+            // }
+        })
+
+        function actionValidBtb(){
+            const input = document.querySelectorAll('input:required')
+            if(input.length > 0){
+                for(let i = 0; i < input.length; i++){
+                    // console.log(input[i]);
+                    if(input[i].value == '' || input[i].value == ''){
+                        btnSubmit.disabled = true
+                        btnSubmit.style.cursor = 'no-drop'
+                        btnSubmit.style.opacity = .8
+                        break
+                    }else{
+                        btnSubmit.disabled = false
+                        btnSubmit.removeAttribute('style')
+                    }
+                }
+            }else{
+                btnSubmit.disabled = false
+                btnSubmit.removeAttribute('style')
+            }
+        }
+
+
+        btnTambah.addEventListener('click', () => {
+            let container = ml('div', {class: 'container-detail-paket'}, [
+                ml('p', {}, 'Nama Vendor'),
+                ml('input', {class: 'box-input', type: 'text', name: 'nama-vendor[]'}, ),
+                ml('p', {}, 'Kota Vendor'),
+                ml('input', {class: 'box-input', type: 'text', name: 'kota-vendor[]'}, ),
+                ml('p', {}, 'Harga Vendor'),
+                ml('input', {class: 'box-input', type: 'number', name: 'harga-vendor[]'}, ),
+            ])
+            const btnDelete = document.createElement('button')
+            btnDelete.setAttribute('class', 'btnDelete')
+            btnDelete.addEventListener('click', () => {
+                btnDelete.parentElement.remove();
+            })
+            btnDelete.innerHTML = 'hapus'
+            container.append(btnDelete)
+            target.append(container)
+
+            // set required
+            for(let i = 0; i < target.childElementCount; i++){
+                target.children[i].children[1].required = true
+                target.children[i].children[3].required = true
+                target.children[i].children[5].required = true
+            }
+
+        })
+    </script>
+</body>
+</html>
