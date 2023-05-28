@@ -1,0 +1,149 @@
+.judul-page{
+    text-align: left;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+}
+
+
+.container-paket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}.container-paket form{
+    border: 1px solid var(--global-main_border-color);
+    border-radius: .5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}.container-paket form .form-container{
+    padding: 0.5em;
+    max-width:40rem;
+    width: 100%;
+}.container-paket form .form-container .form-input{
+    margin-bottom: 1rem;
+}.container-paket form .form-container .form-input.flex{
+    display: flex;
+}.container-paket form .form-container .form-input.flex .box{
+    width: 100%;
+}.container-paket form .form-container .form-input .multy-input-biaya-lainnya{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}.container-paket form .form-container .form-input .multy-input-biaya-lainnya .form-input{
+    width: 100%;
+    display: flex;
+    gap: .2rem;
+}
+
+.container-paket form .form-container .form-input .list, .list2{
+    width: 100%;
+    list-style: none;
+}.container-paket form .form-container .form-input .list-items{
+    border: 1px solid var(--global-main_border-color);
+    padding: 0.3rem 0.5rem;
+    background: #fcfcfc;
+}.container-paket form .form-container .form-input .list-items:hover{
+    border-color: orange;
+    background: #c4c4c4;
+}.container-paket form .form-container .form-input textarea{
+    resize: none;
+    height: 100%;
+}.container-paket form .form-container .form-input.radio{
+    display: flex;
+    justify-content: space-between;
+}.container-paket form .form-container .form-input .fullwidth{
+    width: 100%;
+}.container-paket form .form-container .form-input.radio label{
+    cursor: pointer;
+}.container-paket form .form-container .form-input.radio label:hover{
+    text-decoration: underline;
+}
+
+/* ================ data pengirim penerima ============== */
+.container-paket form .form-container .sub-form-container:first-child{
+    margin-bottom: 2.5rem;
+}
+
+/* ================ form Submit Action ================ */
+.container-paket form .form-container .form-submit{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}.container-paket form .form-container .form-submit .btn-submit{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border: 1px solid #2581d6;
+    border-radius: .5rem;
+    font-size: 1rem;
+    background: #3085d6;
+    color: #fff;
+}.container-paket form .form-container .form-submit .btn-submit.green{
+    border-color: rgb(27, 129, 27);
+    background: rgb(56, 194, 74);
+}.container-paket form .form-container .form-submit .btn-submit.red{
+    border-color: red;
+    background: #d33;
+}.container-paket form .form-container .form-submit .btn-submit:hover{
+    opacity: .8;
+}
+
+/* Track Style */
+.container-track{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}.container-track .sub-container{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.container-track .sub-container table{
+    width: 100%;
+    border-collapse: collapse;
+}.container-track .sub-container table, th, tr, td{
+    border: 1px solid;
+}.container-track .sub-container table td{
+    padding: .3rem;
+}
+.container-track .sub-container table td:first-child{
+    width: 7rem;
+}
+
+
+/* =============== Detail Paket ================ */
+.container-detail-paket{
+    width: 100%;
+    border: 1px solid var(--global-main_border-color);
+    border-radius: .5rem;
+    padding: .5rem;
+}.container-detail-paket ol{
+    margin-left: 1rem;
+}.container-detail-paket ol li:not(:last-child){
+    margin-bottom: .5rem;
+}
+
+
+@media(max-width: 890px){
+    .judul-kontent{
+        font-size: 2rem;
+    }
+    .container-paket form{
+        flex-direction: column;
+        border: none;
+    }.container-paket form .form-container{
+        border: 1px solid var(--global-main_border-color);
+        border-radius: .5rem;
+    }
+}
+
+@media(max-width: 450px){
+    .btn-action{
+        justify-content: center;
+    }
+    .btn-action .btn{
+        padding: .5rem .5rem;
+    }
+}

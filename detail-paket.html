@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global_style.css">
+    <link rel="stylesheet" href="css/paket_style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js" defer></script>
+    <title>Detail Invoice || 2305230000</title>
+</head>
+<body>
+    <section>
+        <div class="flex">
+            <h1><div class="judul-page">Detail Invoice</div></h1>
+            <h2 class="status-paket">Proses</h2>
+        </div>
+        <div class="container-paket">
+            <form>
+                <!-- id barang -->
+                <div class="form-container">
+                    <div class="form-input flex">
+                        <div class="fullwidth">
+                            <p><strong>Kode Resi</strong></p>
+                            <strong><p class="box-input" id="kode-resi">2205230000</p></strong>
+                        </div>
+                        <div class="fullwidth">
+                            <p>Tanggal</p>
+                            <p class="box-input" id="tanggal">13:00, 22 Mei 2023</p>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <p>Kota Asal</p>
+                        <p class="box-input" id="kota-asal">Yogyakarta</p>
+                    </div>
+                    <div class="form-input">
+                        <p>Kota Tujuan</p>
+                        <p class="box-input" id="kota-tujuan">Pekanbaru</p>
+                    </div>
+                    <div class="form-input">
+                        <p>Jumlah Koli</p>
+                        <p class="box-input">1</p>
+                    </div>
+                    <div class="form-input">
+                        <p>Harga/Kg</p>
+                        <p class="box-input">Rp. 3000</p>
+                    </div>
+                    <div class="form-input flex">
+                        <div class="fullwidth">
+                            <p>Berat</p>
+                            <p class="box-input">20 kg</p>
+                        </div>
+                        <div class="fullwidth">
+                            <p>Berat Volume</p>
+                            <p class="box-input">50 kg</p>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <p>Kategori Barang</p>
+                        <p class="box-input">Alat Rumah Tangga</p>
+                    </div>
+                    <div class="form-input">
+                        <p>Pemeriksaan</p>
+                        <p class="box-input">Diperikas</p>
+                    </div>
+                </div>
+                <!-- data pengirim dan penerima -->
+                <div class="form-container">
+                    <!-- pengirim -->
+                    <div class="sub-form-container">
+                        <div class="form-input">
+                            <p>Nama Pengirim</p>
+                            <p class="box-input">Daffa Alif Murtaja</p>
+                        </div>
+                        <div class="form-input">
+                            <p>No HP Pengirim</p>
+                            <p class="box-input">0822 2622 3508</p>
+                        </div>
+                    </div>
+                    <!-- penerima -->
+                    <div class="sub-form-container">
+                        <div class="form-input">
+                            <p>Nama Penerima</p>
+                            <p class="box-input">Lemon Sques</p>
+                        </div>
+                        <div class="form-input">
+                            <p>Alamat</p>
+                            <textarea cols="30" rows="12" class="box-input" disabled>perumahan palagan regancy</textarea>
+                        </div>
+                        <div class="form-input">
+                            <p>No HP Penereima</p>
+                            <p class="box-input">0822 2622 3508</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- harga setting -->
+                <div class="form-container">
+                    <div class="form-input">
+                        <p>Biaya Kirim</p>
+                        <p class="box-input">200.000</p>
+                    </div>
+                    <div class="form-input">
+                        <p>Biaya Lainnya</p>
+                        <div class="multy-input-biaya-lainnya">
+                            <div class="form-input">
+                                <p class="box-input">keterangan keterangan</p>
+                                <p class="box-input">1.000.000.000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-input">
+                        <p><strong>Total</strong></p>
+                        <p class="box-input" id="show_total_harga">Rp. 2.000.000</p>
+                    </div>
+                    <div class="form-submit">
+                        <!-- <p class="btn-submit red" id="cancel">Cancel</p> -->
+                        <button type="button" class="btn-submit red" id="cancel">Cancel Invoice</button>
+                        <!-- <p class="btn-submit" id="submit">Buat Invoice</p> -->
+                        <button type="button" class="btn-submit" id="submit">Edit Invoice</button>
+                        <button type="button" class="btn-submit green" id="submit">Cetak Invoice</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Status Paket -->
+    <section>
+        <div class="control-form">
+            <h1><div class="judul-page">Status Invoice</div></h1>
+        </div>
+        <div class="container-detail-paket">
+            <p>Status : <strong id="status-paket">Selesai</strong></p>
+        </div>
+    </section>
+    
+    <!-- Vendor Paket -->
+    <section>
+        <div class="control-form">
+            <h1><div class="judul-page">Vendor Invoice</div></h1>
+        </div>
+        <div class="container-detail-paket">
+            <p>Vendor Set Empty <a href="#">Set up</a></p>
+        </div>
+    </section>
+
+    <!-- Vendor Paket -->
+    <section>
+        <div class="control-form">
+            <h1><div class="judul-page">Vendor Invoice</div></h1>
+        </div>
+        <div class="container-detail-paket">
+            <p>Total Vendor Rp. 20.000</p>
+            <ol>
+                <li>Vendor A => Jakarta, Rp. 5000</li>
+                <li>Vendor B => Magelang, Rp. 15000</li>
+                <li>Vendor C => Surakarta, Rp. 50000</li>
+            </ol>
+            <a href="#">Edit Vendor</a>
+        </div>
+    </section>
+
+    <!-- Update Invoice -->
+    <section>
+        <div class="control-form">
+            <h1><div class="judul-page">Update Invoice</div></h1>
+        </div>
+        <div class="container-detail-paket">
+            <ol>
+                <li>Create Invoice => Daffa Alif Murtaja [12:00, 22 Sep 2023]</li>
+                <li>Update Invoice => Daffa Alif Murtaja [12:00, 22 Sep 2023]</li>
+                <li>Update Vendor Invoice => Daffa Alif Murtaja [12:30, 22 Sep 2023]</li>
+                <li>Update Vendor Invoice => Daffa Alif Murtaja [12:30, 22 Sep 2023]</li>
+                <li>Update Vendor Invoice => Daffa Alif Murtaja [12:30, 22 Sep 2023]</li>
+                <li>Update Vendor Invoice => Daffa Alif Murtaja [12:30, 22 Sep 2023]</li>
+                <li>Cancel Invoice => Daffa Alif Murtaja [12:00, 22 Sep 2023]</li>
+            </ol>
+        </div>
+    </section>
+
+    <script>
+        const statusPaket = document.getElementById('status-paket')
+        if(statusPaket.textContent == 'Diproses'){
+            statusPaket.style.color = '#35a4d4'
+        }else if(statusPaket.textContent == 'Selesai'){
+            statusPaket.style.color = '#16cc3e'
+        }else if(statusPaket.textContent == 'Batal'){
+            statusPaket.style.color = '#e03d45'
+        }
+    </script>
+</body>
+</html>

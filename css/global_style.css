@@ -1,0 +1,83 @@
+*{
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root{
+    --global-main_border-color : #bdbdbd
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+.box-input{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem .5rem;
+    height: 2.2rem;
+    border: 1px solid var(--global-main_border-color);
+    border-radius: .5rem;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.error{
+    color: red;
+    text-decoration: underline;
+}
+
+/* ==================== BUTTON STYLE GLOBAL ================== */
+.btn-action{
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}.btn-action .btn{
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border: 1px solid #2581d6;
+    border-radius: .5rem;
+    font-size: 1rem;
+    background: #3085d6;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1rem;
+}.btn-action .btn::selection{
+    background: none;
+    color: none;
+}
+.btn-action .btn:hover{
+    opacity: .8;
+}.btn-action .btn.red{
+    border-color: red;
+    background: #d33;
+}
+
+/* ========== btn form ========== */
+.btnDelete, .btnTambah, .btnSubmit{
+    padding: .5rem .5rem;
+    margin: 0.5rem .5rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: .5rem;
+}.btnDelete:hover, .btnTambah:hover, .btnSubmit:hover{
+    color: #fff;
+}
+.btnSubmit{
+    background: rgb(54, 209, 230);
+}.btnDelete{
+    background: rgb(255, 108, 108);
+}.btnTambah{
+    background: rgb(49, 204, 49);
+}
+/* ==================== BUTTON STYLE GLOBAL ================== */
